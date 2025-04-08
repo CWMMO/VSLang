@@ -1,0 +1,84 @@
+{
+  "name": "VSLANG",
+  "fileTypes": ["vslang"],
+  "patterns": [
+    {
+      "match": "(\\+|\\-|\\.|,|\\[|\\]|@|\\$|#|\\^|&|\\*|!|\\/|\\\\|\\|%\\{|\\}|~.*~|_{.*}|\".*\")",
+      "name": "keyword.control.vslang"
+    },
+    {
+      "match": "(\\+)",
+      "name": "keyword.operator.increment.vslang"
+    },
+    {
+      "match": "(\\-)",
+      "name": "keyword.operator.decrement.vslang"
+    },
+    {
+      "match": "(\\.)",
+      "name": "keyword.output.print.vslang"
+    },
+    {
+      "match": "(\\[|\\])",
+      "name": "keyword.loop.bracket.vslang"
+    },
+    {
+      "match": "~.*~",
+      "name": "comment.line.vslang"
+    },
+    {
+      "match": "_\\{.*\\}",
+      "name": "storage.vslang"
+    },
+    {
+      "match": "\\@",
+      "name": "keyword.output.tape.vslang"
+    },
+    {
+      "match": "\\$",
+      "name": "keyword.output.tapes.vslang"
+    },
+    {
+      "match": "#",
+      "name": "keyword.output.queue.vslang"
+    },
+    {
+      "match": "\\^",
+      "name": "keyword.copy.vslang"
+    },
+    {
+      "match": "&",
+      "name": "keyword.paste.vslang"
+    },
+    {
+      "match": "\\*",
+      "name": "keyword.control.finish.vslang"
+    },
+    {
+      "match": "!",
+      "name": "keyword.control.terminate.vslang"
+    },
+    {
+      "match": "\\/",
+      "name": "keyword.pointer.right.vslang"
+    },
+    {
+      "match": "\\\\",
+      "name": "keyword.pointer.left.vslang"
+    },
+    {
+      "match": "\\|",
+      "name": "keyword.create.newTape.vslang"
+    },
+    {
+      "match": "%\\{.*\\}",
+      "name": "keyword.async.execution.vslang"
+    },
+    {
+      "match": "\".*\"",
+      "name": "keyword.copy.mainCandidate.vslang"
+    }
+  ],
+  "repository": {},
+  "scopeName": "source.vslang"
+}
