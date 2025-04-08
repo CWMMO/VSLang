@@ -1,0 +1,105 @@
+
+_{Hello, World!} ~ Stores 'Hello, World!' into the next 13 cells (Cell 1-14) ~
+>.>.>.>.>.>.>.>.>.>.>.>.>.
+~ Goes through the cells and prints all of their values ~
+
+@ ~ Prints out the stack ~
+~ This should be '[0, 72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33, 125]'
+  unless the way computers work magically changed.
+
+  The stack represents every cell in the program (or the TAPE in regular brainfuck.)
+~
+
+~ CONTEXT:
+  _{BrainFuck}>.>.>.>.>.>.>.>.>. is a fork of brainfuck
+  coded in Java. Instead of using a tape corresponding
+  to memory that holds bytes respectively, this script
+  uses ints, and uses stacks as well as multiple 'tapes'
+  and allows for async execution, as well as the use,
+  creation, and management, of multiple tapes..
+
+
+  EVERY KEYWORD:
+  .: Print out the current cell's value in ASCII
+  ,: Save the user's input in the current cell
+  +: Add 1 to the current cell
+  -: Subtract one from the current cell
+  >: Move the pointer right by 1, meaning that any
+     given operation will be performed on the cell
+     that the pointer (now one cell ahead) points
+     to.
+  <: Move the pointer left by 1
+  (TILDE): Start / end comments or comment blocks.
+  [: If the current cell's value is 0, jump to the
+     corresponding ].
+  ]: If the current cell's value is non 0, jump to
+     the corresponding [.
+  @: Print out the stack.
+  $: Print out every tape's stack.
+  #: Print out the operation queue.
+  |: Create a new tape.
+  /: Move the tape pointer to the right
+  \: Move the tape pointer to the left
+  *** WARNING ABOUT MOVING THROUGH TAPES:
+      Moving through stacks resets the pointer for
+      every tape (regardless of whether or not you
+      switch back ...for now at least)
+
+      You CAN copy and paste throughout stacks but
+      it may be a little weird to do.
+  ***
+  ^: Copy the current cell's value.
+  &: Paste the copied value (If no value is copied,
+     it will paste 0 into the cell)
+  _{...}: Store ... over the next (length of ...)
+          cells. Please note: This will throw an
+          error if the cells have a value. Only use
+          this at the end of your program and jump
+          to said cells to access them (Reccomended
+          way of inputting text instead of using +
+          / - keywords.
+  %{...}: Lexes, translates, and invokes the code in
+          the braces asynchronously on a new thread.
+
+          Warning: This could cause some issues, as
+          BrainFuck concurrency WILL act weird.
+
+          Also Warning: New threads run concurrently
+          with the start of the script. Meaning that
+          no matter how low the %{...} syntax is, the
+          created thread will run at the same time as
+          the main thread.
+
+          Also, the code can not interact with other
+          thread's tapes.
+  `: (NOT RECOMMENDED) Copies the main thread's data
+     onto the new async thread that was created.
+
+     Warning: This will most likely cause an error
+     due to how the syntax works. This is also VERY
+     experimental.
+~
+
+%{
+    $ ~ WILL print [0] at an unknown position in the output ~
+    |||||
+    /+>+>+>+>\+>+>
+    $ ~ WILL print [1, 1, 0] and [1, 1, 1, 1, 0] as the main
+        program hasn't finished its execution yet. We can use
+        the ` keyword to copy the main thread's data onto this
+        async thread (Risky and will probably throw errors)
+      ~
+} ~ Creates a new asynchronous thread that does not share any
+    data with the main script (Essentially creates a new script
+    inside of the main script which is unreliable.)
+  ~
+
+|||| ~ Creates 4 tapes, 5 total ~
++>+>+/
++>+>+/
++>+>+/
++>+>+/
++>+>+
+$ ~ Unlike the @ key that prints out the tape, the
+    $ key prints out every tape that is being used
+  ~
