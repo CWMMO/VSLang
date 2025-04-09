@@ -76,7 +76,7 @@ import java.util.Stack;
 /// @see Parser
 /// @see TreeBuilder
 ///
-/// @author Jason Pakman
+/// @author CWMMO Developer
 /// @implNote If you are going to use this, be sure to include credits and
 /// also make sure you are properly setting up VSLang.
 public class Executor {
